@@ -2,8 +2,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Script from 'next/script'
-
 
 const Home: NextPage = () => {
   return (
@@ -53,29 +51,6 @@ const Home: NextPage = () => {
             </p>
           </a>
         </div>
-
-        <Script
-            id='sdk-load'
-            src='https://static.elevate.salesforce.org/donation-widget/sdk.js'
-            strategy='beforeInteractive'
-        />
-        <div id='donation-widget-placeholder' />
-        <Script
-            id='sdk-mount'
-            dangerouslySetInnerHTML={{
-              __html: `
-          console.log('About to create ElevateDonationWidgetSDK object');
-          var sdk = new ElevateDonationWidgetSDK({elementId: 'donation-widget-placeholder', givingPageId: 'feefb3e3-51da-4a3e-897e-e23ae92b79b2',});
-          console.log('About to mount sdk');
-          console.log('seriously');
-          sdk.mount();
-          console.log('mounted');
-          `,
-            }}
-            strategy='lazyOnload'
-        />
-
-
       </main>
 
       <footer className={styles.footer}>
